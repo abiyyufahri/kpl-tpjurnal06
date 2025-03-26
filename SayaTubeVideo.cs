@@ -15,8 +15,8 @@ namespace modul6_103022300121
 
         public SayaTubeVideo(string title)
         {
-            Contract.Requires(title != null, "Judul tidak boleh null.");
-            Contract.Requires(title.Length <= 100, "Judul maksimal 100 karakter.");
+            Contract.Requires(title.Length <= 200, "Judul video memiliki panjang maksimal 200 karakter.");
+            Contract.Requires(title != null, "Judul video tidak berupa null.");
 
             Random random = new Random();
             this.id = random.Next(10000, 100000);
@@ -28,9 +28,8 @@ namespace modul6_103022300121
 
         public void IncreasePlayCount(int count)
         {
-            Contract.Requires(count >= 0 && count <= 10000000,
-                "Penambahan play count harus antara 0 hingga 10.000.000.");
-            Contract.EnsuresOnThrow<OverflowException>(this.playCount >= 0);
+            Contract.Requires(count >= 0 && count <= 25000000,
+                "Penambahan play count harus antara 0 hingga 25.000.000.");
 
             int oldPlayCount = this.playCount;
 
